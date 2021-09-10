@@ -2,6 +2,9 @@
 
 A shields.io API for your youtube channel to protect your api key.
 
+## NOTE
+This repository is copied from the YouTube-Channel-Badge repositry of [ntec](https://github.com/ntec-io).
+
 ## Table of contents
 
 - [Why](https://github.com/ntec-io/youtube-channel-badge#Why)
