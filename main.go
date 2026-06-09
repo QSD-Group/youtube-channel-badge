@@ -7,7 +7,7 @@ import (
 )
 
 func main() {
-	http.HandleFunc("/subscribers", api.SubscriberCount)
+	http.HandleFunc("/subscriber", api.SubscriberCount)
 	http.HandleFunc("/views", api.ViewCount)
 	http.HandleFunc("/videos", api.VideoCount)
 	http.HandleFunc("/comments", api.CommentCount)

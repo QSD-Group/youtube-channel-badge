@@ -1,9 +1,9 @@
-FROM golang
+FROM golang:1.22
 
 COPY . .
 
-ENV SLEEP_TIME 5
+ENV CACHE_TIME 300
 ENV API_KEY test
 ENV CHANNEL_ID test
 
-CMD [ "go" "run" "." ]
+CMD [ "go", "run", "." ]
