@@ -8,7 +8,10 @@ import (
 )
 
 func SubscriberCount(w http.ResponseWriter, req *http.Request) {
-	badge.UpdateCounter()
-	s := badge.ConvertToJson("Subscribe", badge.ChannelStats.SubscriberCount)
-	fmt.Fprint(w, s)
+	w.Header().Set("Content-Type", "application/json")
+	if err := badge.UpdateCounter(); err != nil {
+		fmt.Fprint(w, badge.ErrorToJson("Subscribe", err.Error()))
+		return
+	}
+	fmt.Fprint(w, badge.ConvertToJson("Subscribe", badge.ChannelStats.SubscriberCount))
 }

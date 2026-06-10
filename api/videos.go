@@ -8,7 +8,10 @@ import (
 )
 
 func VideoCount(w http.ResponseWriter, req *http.Request) {
-	badge.UpdateCounter()
-	s := badge.ConvertToJson("Videos", badge.ChannelStats.VideoCount)
-	fmt.Fprint(w, s)
+	w.Header().Set("Content-Type", "application/json")
+	if err := badge.UpdateCounter(); err != nil {
+		fmt.Fprint(w, badge.ErrorToJson("Videos", err.Error()))
+		return
+	}
+	fmt.Fprint(w, badge.ConvertToJson("Videos", badge.ChannelStats.VideoCount))
 }
