@@ -4,11 +4,11 @@ import (
 	"fmt"
 	"net/http"
 
-	"github.com/ntec-io/Youtube-Channel-Badge/internal"
+	"github.com/ntec-io/Youtube-Channel-Badge/badge"
 )
 
 func ViewCount(w http.ResponseWriter, req *http.Request) {
-	internal.UpdateCounter()
-	s := internal.ConvertToJson("Views", internal.ChannelStats.ViewCount)
+	badge.UpdateCounter()
+	s := badge.ConvertToJson("Views", badge.ChannelStats.ViewCount)
 	fmt.Fprint(w, s)
 }
